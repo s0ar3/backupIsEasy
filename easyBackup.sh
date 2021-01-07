@@ -17,10 +17,10 @@ checking() {
         time=$1
     elif [[ $# -eq 2 ]]; then
         if [[ "${1}" =~ [[:alpha:]]{1,} ]] && [[ ("${2}" =~ [[:digit:]]{1,} && ! "${2}" =~ [[:alpha:]]{1,}) ]]; then
-            declare -r message=" [ ${1} ]" 
+            message=" [ ${1} ]" 
             time=$2
         elif [[ "${2}" =~ [[:alpha:]]{1,} ]] && [[ ("${1}" =~ [[:digit:]]{1,} && ! "${1}" =~ [[:alpha:]]{1,}) ]]; then
-            declare -r message=" [ ${2} ]" 
+            message=" [ ${2} ]" 
             time="${1}"
         else
             printf "\n%s\n\n" "ERROR - we need a message and a number which represents time to wait during progress."
@@ -155,7 +155,7 @@ logging_backup_info() {
 
 printf "%s\n" "${HIDE_CURSOR}"
 logging_backup_info
-checking "Loading" "0.1"
+checking "Script loading.." "0.1"
 displayProgress
 main
 printf "%s\n" "${SHOW_CURSOR}"
